@@ -1,0 +1,15 @@
+ body {
+    background-color: lightgreen;
+     background-image: url('inst1.png');
+  background-size: cover;
+  background-repeat: no-repeat;}
+  button {
+  margin-left: 1000px;
+  margin-bottom: 200px;
+  width: 300px;
+  padding: 12px;
+  font-size: 16px;    /* bigger text inside */
+  border-radius: 8px;
+background-color: rgb(233, 224, 190);
+
+}
