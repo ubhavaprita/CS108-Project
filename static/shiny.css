@@ -1,10 +1,16 @@
-*{
-    background-color: black;
+
+  body {
+    background-color: lightblue;
+     background-image: url('sn2.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;}
+ input{
+  margin: 0 auto;     /* center */
+  width: 300px;
+  padding: 12px;
+  font-size: 16px;    /* bigger text inside */
+  border-radius: 8px;
 }
-#heading{
-     color: aliceblue;
-     text-align: center;
-}
-.text{
-    color: aliceblue;
-}
+
+  
+  
