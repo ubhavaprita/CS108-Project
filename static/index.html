@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 class="entry">SNAKE GAME</h1>
+<pre class="instructions">
+ <h2><u>Instructions:</u></h2>
+<ul>
+    <li>Enter a username with atleast three characters</li>
+    <li>Use arrow keys or <b>WASD</b> to control the snake</li>
+    <li>Food appears at random empty cells</li>
+    <li>Food types:
+        <ol>
+            <li>Orange carrot</li>
+        </ol>
+    </li>
+    <li>If not immune, the snake can die by hitting a wall or colliding it's own body</li>
+    <li>Score = health = length of snake</li>
+</ul>
+
+</pre>
+<label class="entry" for="username-input">Username:</label>
+<input class="entry" id="username-input" type="text" placeholder="Enter username..." maxlength="20" />
+<button class="entry" id="startBtn" disabled>Start</button>
+
+  <div class="game-wrapper">
+
+    <div class="scoreboard">
+      <div class="score-box">
+        <span>Score</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="score-box">
+        <span>Best</span>
+        <strong class="score-box" id="best">0</strong>
+      </div>
+    </div>
+
+    <!-- Game canvas with grid overlay -->
+    <div class="canvas-container">
+      <canvas id="gameCanvas" width="1600" height="900"></canvas>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <p class="controls">Arrow Keys / WASD to move &nbsp;|&nbsp; Press Enter to start</p>
+
+  </div>
+<script src="game.js"></script>
+</body>
+
+</html>
