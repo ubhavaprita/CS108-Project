@@ -1,0 +1,208 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\onehalfspacing
+
+\title{\textbf{Snake Stack Project Report}\\
+A Three-Layer Web Architecture using JavaScript, Flask, and Bash}
+\author{Shiny-Bhavaprita}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+%--------------------------------------------------
+\section{Introduction}
+
+The Snake Stack project is a browser-based implementation of the classic Snake game designed using a three-layer architecture. The goal of this project is not only to implement a functional game but also to demonstrate clear separation of concerns across frontend, backend, and system-level scripting.
+
+The system is composed of:
+\begin{itemize}
+    \item A JavaScript-based frontend for gameplay
+    \item A Flask-based backend for handling requests and storing scores
+    \item A Bash script for data management and analysis
+\end{itemize}
+
+Unlike typical applications, this project uses a flat file instead of a database, encouraging the use of Unix tools for processing data.
+
+%--------------------------------------------------
+\section{External Libraries Used}
+
+\subsection{Flask}
+Flask is a lightweight Python web framework used to create the backend server. It handles HTTP requests and responses.
+
+\subsection{JavaScript Fetch API}
+The Fetch API is used in the frontend to send asynchronous POST requests to the Flask server without reloading the page.
+
+\subsection{HTML5 Canvas}
+Canvas is used for rendering the Snake game. It allows drawing shapes and animations dynamically.
+
+\subsection{Bootstrap (Optional)}
+Bootstrap is used to design modals and improve UI consistency.
+
+\subsection{Bash Utilities}
+Tools such as \texttt{awk}, \texttt{sed}, and \texttt{sort} are used for parsing and analyzing stored data.
+
+%--------------------------------------------------
+\section{Features Implemented}
+
+\subsection{Game Mechanics}
+\begin{itemize}
+    \item Grid-based snake movement
+    \item Continuous motion system
+    \item Dynamic food spawning
+\end{itemize}
+
+\subsection{Controls}
+\begin{itemize}
+    \item Arrow keys
+    \item WASD keys
+\end{itemize}
+
+\subsection{Food Types}
+\begin{itemize}
+    \item Carrot (+1 score)
+    \item Pumpkin Pie (+3 score)
+    \item Golden Apple (temporary immunity)
+\end{itemize}
+
+\subsection{Game Over Conditions}
+\begin{itemize}
+    \item Collision with wall
+    \item Collision with itself
+\end{itemize}
+
+\subsection{User Interface}
+\begin{itemize}
+    \item Start modal with username input
+    \item Game over modal with statistics
+    \item Clean centered layout
+\end{itemize}
+
+\subsection{Backend Features}
+\begin{itemize}
+    \item REST API endpoint for score submission
+    \item JSON validation
+    \item File-based storage
+\end{itemize}
+
+\subsection{Bash Features}
+\begin{itemize}
+    \item Menu-driven interface
+    \item Filtering and sorting
+    \item Statistical analysis
+\end{itemize}
+
+%--------------------------------------------------
+\section{Three-Layer Communication}
+
+\subsection{Frontend to Backend}
+The frontend sends game results using a POST request:
+
+\begin{lstlisting}[language=JavaScript]
+fetch('/save_score', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(data)
+});
+\end{lstlisting}
+
+\subsection{Backend Processing}
+The backend extracts and validates data:
+
+\begin{lstlisting}[language=Python]
+@app.route('/save_score', methods=['POST'])
+def save_score():
+    data = request.json
+    with open("history.txt", "a") as f:
+        f.write(format_data(data))
+    return {"status": "success"}
+\end{lstlisting}
+
+\subsection{Data Flow}
+\begin{itemize}
+    \item Data is written to history.txt
+    \item Bash script reads file directly
+\end{itemize}
+
+This separation ensures modularity and maintainability.
+
+%--------------------------------------------------
+\section{Format of history.txt}
+
+Example entry:
+
+\begin{verbatim}
+[2025-06-12 14:35:02] Herobrine | 42 | WALL | 85
+\end{verbatim}
+
+\subsection{Design Decisions}
+\begin{itemize}
+    \item Timestamp ensures chronological tracking
+    \item Pipe separator simplifies parsing
+    \item Human-readable format aids debugging
+\end{itemize}
+
+\subsection{Advantages}
+\begin{itemize}
+    \item Easy to process with Bash tools
+    \item No database dependency
+    \item Lightweight and portable
+\end{itemize}
+
+%--------------------------------------------------
+\section{Hurdles Faced}
+
+\subsection{Frontend Issues}
+Handling smooth movement and collision detection required careful logic.
+
+\subsection{Backend Issues}
+Ensuring proper JSON validation and avoiding malformed data.
+
+\subsection{Bash Challenges}
+Parsing structured data with shell tools required learning \texttt{awk} and \texttt{sed}.
+
+\subsection{Debugging}
+Tracking bugs across three layers was complex and required systematic testing.
+
+%--------------------------------------------------
+\section{Future Improvements}
+
+Given 10 more hours, the following enhancements could be implemented:
+
+\begin{itemize}
+    \item Leaderboard display in UI
+    \item Better animations
+    \item Sound effects
+    \item Database integration
+    \item Multiplayer mode
+    \item Advanced analytics in Bash
+\end{itemize}
+
+%--------------------------------------------------
+\section{Conclusion}
+
+The Snake Stack project demonstrates a clean separation of concerns using three distinct technologies. It highlights the integration of web technologies with system-level scripting and showcases the power of modular design.
+
+%--------------------------------------------------
+\section{Bibliography}
+
+\begin{itemize}
+    \item Flask Documentation: \url{https://flask.palletsprojects.com/}
+    \item MDN Web Docs: \url{https://developer.mozilla.org/}
+    \item Canvas API: \url{https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API}
+    \item Bash Guide: \url{https://tldp.org/LDP/abs/html/}
+\end{itemize}
+
+\end{document}
