@@ -1,29 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head> 
-    <title>Snakes Game</title>
-    <link rel="stylesheet" href="shiny.css">
+<head>
+
+<link rel="stylesheet" href="janu.css">
 </head>
 <body>
-    <link rel="stylesheet" href="shiny.css">
-<style>
-  body {
-    background-color: lightblue;
-  }
-</style>
- <div id="startScreen">
-   
-   <center> <input type="text" placeholder="Enter your name"> </center>
-    <br><br>
+<h1 class="entry">SNAKE GAME</h1>
+<div class="instructions">
+ <h2><u>Instructions:</u></h2>
+ <br>
+<ul><b>
+    <li>Enter a username with atleast three characters</li>
+    <br>
+    <li>Use arrow keys or <b>WASD</b> to control the snake</li>
+    <br>
+    <li>Food appears at random empty cells</li>
+    <br>
+    <li>Food types:
+      <br>
 
-    <!-- Centered Button -->
-    <center>
-      <a href="instructions.html">
-        <button style="font-size:25px; padding:15px 40px;">
-          START GAME
-        </button>
-      </a>
-    </center>
+      <br>
+      
+        <ol>
+            <li>Orange = carrot 🥕(health+1)</li>
+            <br>
+            <li>yellow = pumpkin 🎃(health+3)</li>
+                        <br>
 
+            <li>red = apple 🍎(health+1 & immunity for 10 seconds)</li>
+        </ol>
+    </li>
+    <br>
+    <li>If not immune, the snake can die by hitting a wall or colliding it's own body</li>
+    <br>
+    <li>Score = health = length of snake-1</li>
+</b></ul>
+
+</div>
+<label class="entry" for="username-input">Username:</label>
+<input class="entry" id="username-input" type="text" placeholder="Enter username..." maxlength="20" />
+<button class="entry" id="startBtn" disabled>Start</button>
+
+  <div class="game-wrapper">
+
+    <div class="scoreboard">
+      <div class="score-box">
+        <span>Score</span>
+        <strong id="score">0</strong>
+      </div>
+      <div class="score-box">
+        <span>Best</span>
+        <strong class="score-box" id="best">0</strong>
+      </div>
+    </div>
+
+    <!-- Game canvas with grid overlay -->
+    <div class="canvas-container">
+      <canvas id="gameCanvas" width="1600" height="900"></canvas>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <p class="controls">Arrow Keys / WASD to move &nbsp;|&nbsp; Press Enter to start</p>
+
+  </div>
+<script src="aksh.js"></script>
 </body>
+
 </html>
