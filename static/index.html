@@ -2,26 +2,41 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="janu.css">
 </head>
 <body>
 <h1 class="entry">SNAKE GAME</h1>
-<pre class="instructions">
+<div class="instructions">
  <h2><u>Instructions:</u></h2>
-<ul>
+ <br>
+<ul><b>
     <li>Enter a username with atleast three characters</li>
+    <br>
     <li>Use arrow keys or <b>WASD</b> to control the snake</li>
+    <br>
     <li>Food appears at random empty cells</li>
+    <br>
     <li>Food types:
+      <br>
+
+      <br>
+      
         <ol>
-            <li>Orange carrot</li>
+            <li>Orange = carrot 🥕(health+1)</li>
+            <br>
+            <li>yellow = pumpkin 🎃(health+3)</li>
+                        <br>
+
+            <li>red = apple 🍎(health+1 & immunity for 10 seconds)</li>
         </ol>
     </li>
+    <br>
     <li>If not immune, the snake can die by hitting a wall or colliding it's own body</li>
-    <li>Score = health = length of snake</li>
-</ul>
+    <br>
+    <li>Score = health = length of snake-1</li>
+</b></ul>
 
-</pre>
+</div>
 <label class="entry" for="username-input">Username:</label>
 <input class="entry" id="username-input" type="text" placeholder="Enter username..." maxlength="20" />
 <button class="entry" id="startBtn" disabled>Start</button>
@@ -48,7 +63,7 @@
     <p class="controls">Arrow Keys / WASD to move &nbsp;|&nbsp; Press Enter to start</p>
 
   </div>
-<script src="game.js"></script>
+<script src="aksh.js"></script>
 </body>
 
 </html>

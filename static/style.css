@@ -1,3 +1,4 @@
+
 .instructions{
     color: gold;
 }
@@ -179,4 +180,27 @@
       font-size: 12px;
       letter-spacing: 1px;
       text-align: center;
+    }
+  
+    .instructions {
+      color: gold;
+      font-size: 30px;
+      letter-spacing: 2px;
+      text-align: left;
+    }
+    h1{font-size: 50px;
+      
+    color: gold;
+    text-shadow: 0 0 10px gold, 0 0 20px gold;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px gold;
+    }
+    to {
+        text-shadow: 0 0 20px black, 0 0 40px yellow;
+    
+}
     }
