@@ -1,3 +1,4 @@
+
 from flask import Flask, request, jsonify, send_from_directory
 import os
 
@@ -31,3 +32,4 @@ def save_score():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
