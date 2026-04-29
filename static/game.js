@@ -1,4 +1,7 @@
+let bestScore = localStorage.getItem("bestScore") || 0;
+bestScore = parseInt(bestScore);
 
+document.getElementById("best").innerText = bestScore;
 const input = document.getElementById('username-input');
 const btn = document.getElementById('startBtn');
 console.log("JS LOADED");
@@ -131,8 +134,8 @@ function update() {
   if (
     head.x < 0 ||
     head.y < 0 ||
-    head.x >= canvas.width ||
-    head.y >= canvas.height
+    head.x >= cols * box ||
+    head.y >= rows * box
   ) {
     if (!immunity) {
       clearInterval(game);
@@ -191,6 +194,7 @@ if (food && head.x === food.x && head.y === food.y) {
   }
 
   document.getElementById("score").innerText = score;
+  
   spawnFood();
   while (snake[0].x === food.x && snake[0].y === food.y) {
   spawnFood();

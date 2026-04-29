@@ -34,8 +34,7 @@
     position: absolute;
     inset: 0;
     z-index: 0;
-    width: 100%;
-    height: 100%; 
+   
 }
 
 
@@ -135,14 +134,14 @@
           rgb(169, 153, 88) 0px,
           rgb(169, 153, 88) 1px,
           transparent 1px,
-          transparent 40px        /* cell size = 20px → 20 columns */
+          transparent 40px        
         ),
         repeating-linear-gradient(
           to bottom,
           rgb(169, 153, 88) 0px,
           rgb(169, 153, 88) 1px,
           transparent 1px,
-          transparent 40px        /* cell size = 20px → 20 rows */
+          transparent 40px       
         );
       pointer-events: none;
       z-index: 1;
@@ -204,3 +203,57 @@
     
 }
     }
+#timerBar {
+  position: absolute;
+  left: 0;
+  bottom: 0;          /* grows upward */
+  width: 10px;
+  height: 0%;
+  background: red;
+  z-index: 3;
+  transition: height 0.2s linear;
+}
+
+.game-over-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #111;
+  border: 2px solid gold;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  width: 300px;
+  box-shadow: 0 0 20px red;
+}
+
+.modal-box h2 {
+  color: red;
+  margin-bottom: 15px;
+}
+
+.modal-box p {
+  margin: 10px 0;
+}
+
+#restartBtn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: green;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
