@@ -1,3 +1,4 @@
+
 const input = document.getElementById('username-input');
 const btn = document.getElementById('startBtn');
 console.log("JS LOADED");
@@ -228,5 +229,3 @@ btn.addEventListener("click", () => {
     draw();
   }, 200);
 });
-
-
